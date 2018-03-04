@@ -1,0 +1,140 @@
+body, html{
+    margin: 0px;
+    padding: 0px;
+    font-family: Roboto;
+}
+
+header{
+    position: sticky;
+    float: left;
+    background-color: rgb(53, 53, 53);
+    min-height: 100vh;
+    min-width: 19vh;
+    /* padding: 10px; */
+}
+
+nav{
+    margin-left: -20%;
+}
+
+nav ul{
+    list-style-type: none;
+}
+
+nav i {
+    padding-right: 10px;
+}
+
+nav i:hover{
+    font-weight: 700;
+}
+
+ul > li {
+    padding-bottom: 1.1em;
+    border-bottom: 1px solid white;
+    margin-bottom: 1.1em;
+}
+
+li > a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.brand{
+    padding: 10px;
+}
+
+#user-div{
+    /* border: 1px solid white; */
+    width: inherit;
+    text-align: right;
+    padding-right: 1.1em;
+    margin-top: 5vh;
+    position: relative;
+    /* left: 2em; */
+}
+
+#user-div a{
+    text-decoration: none;
+    display: block;
+    color: rgb(143, 244, 148);
+}
+
+#user-div a:nth-child(2){
+    color: rgb(111, 196, 118);
+}
+
+#user-div a:hover{
+    text-decoration: none;
+    display: block;
+    color: rgb(144, 173, 155);
+}
+
+#search-label{
+    padding: 2px;
+    color:white;
+    margin-bottom: 10px;
+}
+
+.brand img{
+    max-width: 100px;
+}
+
+.gradient {
+    background-image:
+      linear-gradient(
+          to right,
+        rgb(0, 255, 157), #d9f006
+      );
+      transition: all 0.4s ease;
+  }
+
+
+
+
+li > a:hover{ 
+    font-weight: 700;
+    text-decoration: none;
+    position: relative;
+    /* left: 10px; */
+    /* margin: 5px 0 5px 0; */
+    /* background-color: purple; */
+}
+
+/* li:hover{
+    background-color: rgb(254, 99, 99);
+} */
+
+#search-container{
+    display: flex;
+    justify-content: center;
+    vertical-align: center;
+    position: relative;
+    top: 40vh;
+}
+
+input[type=search]{
+    width: 80%;
+    /* height: 3em; */
+    border-radius: 0px;
+    border: none;
+    border: 1px solid darkgray;
+    padding: 12px 12px;
+    font-size: 15px;
+    box-sizing: border-box;
+    margin: 0px;
+    /* background-color: rgb(139, 255, 104); */
+}
+
+
+#search-container a{
+    color: rgb(0, 255, 157);
+    background-color: rgb(53, 53, 53);
+    padding: 12px;
+    
+}
+
+#search-container a:hover{
+    color: rgb(255, 255, 255);
+    background-color: rgb(85, 85, 85);
+}
