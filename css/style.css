@@ -1,3 +1,8 @@
+:root{
+    --fg-color: rgb(143, 244, 148);
+    --fg-color-secondary: rgb(111, 196, 118)
+}
+
 body, html{
     margin: 0px;
     padding: 0px;
@@ -5,7 +10,7 @@ body, html{
 }
 
 header{
-    position: sticky;
+    position: fixed;
     float: left;
     background-color: rgb(53, 53, 53);
     min-height: 100vh;
@@ -25,8 +30,12 @@ nav i {
     padding-right: 10px;
 }
 
-nav i:hover{
-    font-weight: 700;
+nav a:hover{
+    color: var(--fg-color-secondary);
+}
+
+nav .active{
+    color: var(--fg-color);
 }
 
 ul > li {
@@ -57,7 +66,7 @@ li > a{
 #user-div a{
     text-decoration: none;
     display: block;
-    color: rgb(143, 244, 148);
+    color: var(--fg-color);
 }
 
 #user-div a:nth-child(2){
@@ -84,7 +93,7 @@ li > a{
     background-image:
       linear-gradient(
           to right,
-        rgb(0, 255, 157), #d9f006
+        var(--fg-color), #d9f006
       );
       transition: all 0.4s ease;
   }
@@ -116,22 +125,30 @@ li > a:hover{
 input[type=search]{
     width: 80%;
     /* height: 3em; */
-    border-radius: 0px;
-    border: none;
+    /* border-radius: 0px; */
     border: 1px solid darkgray;
-    padding: 12px 12px;
+    padding: 12px;
     font-size: 15px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     margin: 0px;
+    color: var(--fg-color-secondary);
     /* background-color: rgb(139, 255, 104); */
+}
+
+input:-moz-placeholder{
+    color: var(--fg-color-secondary);
+}
+
+input::-webkit-input-placeholder{
+    color: var(--fg-color-secondary);
 }
 
 
 #search-container a{
     color: rgb(0, 255, 157);
     background-color: rgb(53, 53, 53);
-    padding: 12px;
-    
+    padding: 15px 17px;
+    font-size: 15px;
 }
 
 #search-container a:hover{

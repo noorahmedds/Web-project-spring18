@@ -6,9 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Travel Reccomendation</title>
+
+    <style>
+        #search-container{
+            padding-left: 19vh;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -17,7 +24,7 @@
         </div>
         <nav>
             <ul id="nav-list">
-                <li><a href="#"><i class="fa fa-search"></i>Search</a></li>
+                <li><a class="active" href="#"><i class="fa fa-search"></i>Search</a></li>
                 <li><a href="#"><i class="fa fa-map-marker-alt"></i>Places</a></li>
                 <li><a href="#"><i class="fa fa-utensils"></i>Restaurants</a></li>
                 <li><a href="#"><i class="fa fa-building"></i>Hotels</a></li>
@@ -31,16 +38,13 @@
             </div>
         </nav>
     </header>
+
     
     <div id="search-container">
         <div>
             <h1 id="search-label" class="gradient">Search Anything</h1>
-            <input type="search" id="search-field">
+            <input type="search" id="search-field" placeholder="City, Restaurants, Hotels...">
             <a href="#"><i class="fa fa-search fa-sm"></i></a>
-            <!-- <ul class="suggestions">
-                <li>Filter for a city</li>
-                <li>or a state</li>
-            </ul> -->
         </div>
     </div>
     <script src="javascript/main.js"></script>
