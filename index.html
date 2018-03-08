@@ -13,8 +13,63 @@
 
     <style>
         #search-container{
-            padding-left: 19vh;
+            margin-left: 19vh;
         }
+
+        #search-container a{
+            color: rgb(0, 255, 157);
+            background-color: rgb(53, 53, 53);
+            padding: 15px 17px;
+            font-size: 15px;
+        }
+
+        #search-container a:hover{
+            color: rgb(255, 255, 255);
+            background-color: rgb(85, 85, 85);
+        }
+
+        #search-container {
+            display: flex;
+            justify-content: center;
+            vertical-align: center;
+            position: relative;
+            top: 40vh;
+            text-align: center;
+        }
+
+        input[type=search]{
+            width: 80%;
+            border: 1px solid darkgray;
+            padding: 12px;
+            font-size: 15px;
+            margin: 0px;
+            color: var(--fg-color-secondary);
+        }
+
+        input:-moz-placeholder{
+            color: var(--fg-color-secondary);
+        }
+
+        input::-webkit-input-placeholder{
+            color: var(--fg-color-secondary);
+        }
+
+        
+        @media only screen and (max-width: 768px){
+            #search-container{
+                text-align: center;
+                margin-left: 17vh;
+                top: 30vh;
+                width: 60%;
+            }
+            #search-container a{
+                display: block;
+            }
+
+            input[type=search]{
+                width: 100%;
+            }
+        }   
     </style>
 </head>
 <body>
@@ -23,18 +78,17 @@
             <a href="#"><img src="img/iko-02.png" alt="branding-iko"></a>
         </div>
         <nav>
-            <ul id="nav-list">
-                <li><a class="active" href="#"><i class="fa fa-search"></i>Search</a></li>
-                <li><a href="#"><i class="fa fa-map-marker-alt"></i>Places</a></li>
-                <li><a href="#"><i class="fa fa-utensils"></i>Restaurants</a></li>
-                <li><a href="#"><i class="fa fa-building"></i>Hotels</a></li>
-                <li><a href="#"><i class="fa fa-bus"></i>Transport</a></li>
-                <li><a href="user.html"><i class="fa fa-user"></i>People</a></li>
-            </ul>
+            <div id="side-nav">
+                <a class="active" href="#"><i class="fa fa-search"></i><span>Search</span></a>
+                <a href="#"><i class="fa fa-map-marker-alt"></i><span>Places</span></a>
+                <a href="#"><i class="fa fa-utensils"></i><span>Restaurants</span></a>
+                <a href="#"><i class="fa fa-building"></i><span>Hotels</span></a>
+                <a href="#"><i class="fa fa-bus"></i><span>Transport</span></a>
+                <a href="user.html"><i class="fa fa-user"></i><span>People</span></a>
+            </div>
 
             <div id = "user-div">
-                <a href="#">Login</a>
-                <a href="#">Signup</a>
+                <a href="login.html" style="color:black"><button class="btn">Login</button></a>
             </div>
         </nav>
     </header>
@@ -43,8 +97,10 @@
     <div id="search-container">
         <div>
             <h1 id="search-label" class="gradient">Search Anything</h1>
-            <input type="search" id="search-field" placeholder="City, Restaurants, Hotels...">
-            <a href="#"><i class="fa fa-search fa-sm"></i></a>
+            <div>
+                <input type="search" id="search-field" placeholder="Search for City...">
+                <a href="search_response.html"><i class="fa fa-search fa-sm"></i></a>
+            </div>
         </div>
     </div>
     <script src="javascript/main.js"></script>
