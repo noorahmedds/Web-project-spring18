@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Travel Reccomendation</title>
+
+    <style>
+        #search-container{
+            margin-left: 19vh;
+        }
+
+        #search-container a{
+            color: rgb(0, 255, 157);
+            background-color: rgb(53, 53, 53);
+            padding: 15px 17px;
+            font-size: 15px;
+        }
+
+        #search-container a:hover{
+            color: rgb(255, 255, 255);
+            background-color: rgb(85, 85, 85);
+        }
+
+        #search-container {
+            display: flex;
+            justify-content: center;
+            vertical-align: center;
+            position: relative;
+            top: 40vh;
+            text-align: center;
+        }
+
+        input[type=search]{
+            width: 100%;
+            border: 1px solid darkgray;
+            padding: 12px;
+            font-size: 15px;
+            margin: 0px;
+            color: var(--fg-color-secondary);
+        }
+
+        input:-moz-placeholder{
+            color: var(--fg-color-secondary);
+        }
+
+        input::-webkit-input-placeholder{
+            color: var(--fg-color-secondary);
+        }
+
+        .type-choice{
+            position: relative;
+            display: inline-block;
+            padding: 10px;
+        }
+
+        .type-dropdown{
+            display: none;
+            position: absolute;
+            z-index: 1;
+        }
+
+        .type-dropdown a{
+            text-decoration: none;
+        }
+
+        .type-choice:hover .type-dropdown{
+            display: block;
+        }
+
+        .add-cont a{
+            display: block;
+        }
+        
+        @media only screen and (max-width: 768px){
+            #search-container{
+                text-align: center;
+                margin-left: 17vh;
+                top: 30vh;
+                width: 60%;
+            }
+
+            input[type=search]{
+                width: 100%;
+            }
+        }   
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <a href="#"><img src="img/iko-02.png" alt="branding-iko"></a>
+        </div>
+        <nav>
+            <div id="side-nav">
+                <a class="active" href="#"><i class="fa fa-search"></i><span>Search</span></a>
+                <a href="entity.html"><i class="fa fa-map-marker-alt"></i><span>Places</span></a>
+                <a href="#"><i class="fa fa-utensils"></i><span>Restaurants</span></a>
+                <a href="#"><i class="fa fa-building"></i><span>Hotels</span></a>
+                <a href="#"><i class="fa fa-bus"></i><span>Transport</span></a>
+                <a href="user.html"><i class="fa fa-user"></i><span>People</span></a>
+            </div>
+
+            <div id = "user-div">
+                <a href="login.html" style="color:black"><button class="btn">Login</button></a>
+            </div>
+        </nav>
+    </header>
+
+    
+    <div id="search-container">
+        <div>
+            <h1 id="search-label" class="gradient">Add Anything</h1>
+            <div class="add-cont">
+                <input type="search" id="search-field" placeholder="Name">
+                
+                <div class="type-choice">
+                    Choose type
+                    <div class="type-dropdown">
+                        
+                        <a href=""><p>Travel</p></a>
+                        <a href=""><p>Places</p></a>
+                        <a href=""><p>Hotels</p></a>
+                        <a href=""><p>Restaurants</p></a>
+                        
+                    </div>
+                </div>
+                <a href=""><i class="fa fa-plus fa-sm"></i></a>
+            </div>
+        </div>
+    </div>
+    <script src="javascript/main.js"></script>
+    <script>
+        function activatePlacesSearch(){
+            var input = document.getElementById("search-field");
+            var autcomplete = new google.maps.places.Autocomplete(input);
+        }
+    </script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfqjg8kTzwwunQ5_de4oGHOfiXBeeN7A8&libraries=places&callback=activatePlacesSearch"></script>
+</body>
+</html>

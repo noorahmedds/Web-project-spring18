@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Travel Reccomendation</title>
+
+    <style>
+        h1{
+            display: inline;
+            padding: 0 5px 5px 5px;
+        }
+        
+        #entity-container{
+            margin-left: 20vh;
+            padding-top: 20px; 
+            margin-bottom: 20px;  
+        }
+
+        #entity-content img{
+            margin-top: 20px;
+            width: 90%;
+        }
+        
+        #rating-container{
+            position: relative;
+            left: 57%;
+        }
+
+        #rating-container p{
+            float: left;
+            margin-right: 10px;
+        }
+
+        #rating {
+            position: relative;
+            width: 100%;
+        }
+        
+        #rating span {
+            cursor: pointer;
+            color: rgb(95, 95, 95);
+            transition: all 150ms;
+            display: inline-block;
+            transform-origin: center bottom;
+        }
+        
+        #rating span.hover {
+            color: rgb(180, 255, 59);
+        }
+
+        .comment-section{
+            margin-top: 15px;
+        }
+
+        #older-comments img{
+            max-width: 100px;
+            float: left;
+        }
+
+        #older-comments .user-comment{
+            padding-top: 40px;
+        }
+
+        .comment-body{
+            border-bottom: 1px solid black;
+            padding: 0px;
+            margin-top: 20px;
+        }
+
+        @media only screen and (max-width: 768px){
+            #entity-container{
+                margin-left: 12vh;
+            }
+
+            #rating-container{
+                left: 0px;
+            }
+
+            #rating-container p{
+                display: none;
+            }
+
+            #rating span {
+                cursor: pointer;
+                color: rgb(95, 95, 95);
+                transition: all 150ms;
+                display: inline-block;
+                transform-origin: center bottom;
+                font-size: 30px;
+            }
+            
+
+        }   
+    </style>
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <a href="#"><img src="img/iko-02.png" alt="branding-iko"></a>
+        </div>
+        <nav>
+            <div id="side-nav">
+                <a class="active" href="#"><i class="fa fa-search"></i><span>Search</span></a>
+                <a href="#"><i class="fa fa-map-marker-alt"></i><span>Places</span></a>
+                <a href="#"><i class="fa fa-utensils"></i><span>Restaurants</span></a>
+                <a href="#"><i class="fa fa-building"></i><span>Hotels</span></a>
+                <a href="#"><i class="fa fa-bus"></i><span>Transport</span></a>
+                <a href="user.html"><i class="fa fa-user"></i><span>People</span></a>
+            </div>
+
+            <div id = "user-div">
+                <a href="login.html" style="color:black"><button class="btn">Login</button></a>
+            </div>
+        </nav>
+    </header>
+
+    
+    <div id="entity-container">
+        <div id="entitiy-body">
+            <h1 class="gradient">Stockholm</h1>
+            <div id="entity-content">
+                <img src="img/stockholm.jpg" alt="Picture of Stockholm">
+                <p>Stockholm is the capital of sweden, home to many swedes</p>
+
+                <div id="rating-container">
+                <p>Rate this <span>Place</span></p>
+                    <div id="rating">
+                            <span class="fas fa-star"></span>
+                            <span class="fas fa-star"></span>
+                            <span class="fas fa-star"></span>
+                            <span class="fas fa-star"></span>
+                            <span class="fas fa-star"></span>
+                    </div>
+                </div>
+
+                <div class="comment-section">
+                    <form action="submit">
+                        <input type="text">
+                        <button disabled="disabled">Comment</button>
+                    </form>
+
+                    <div id="older-comments">
+                        <div class="comment-body">
+                            <div class="user-icon">
+                                <a href=""><img src="img/user-icon1.png" alt="user"></a>
+                            </div>
+                            <div class="user-comment">
+                                <p>
+                                    Stockholm is a v nice place
+                                </p>
+                                <p>
+                                    <i class="fa fa-clock">11-09-2018</i>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="comment-body">
+                            <div class="user-icon">
+                                <a href=""><img src="img/user-icon1.png" alt="user"></a>
+                            </div>
+                            <div class="user-comment">
+                                <p>
+                                    V nice place
+                                </p>
+                                <p>
+                                    <i class="fa fa-clock">11-09-2018</i>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+        * Star rating class
+        * @constructor
+        */
+        function StarRating() {
+        this.init();
+        };
+        
+        /**
+        * Initialize
+        */
+        StarRating.prototype.init = function() {
+        this.stars = document.querySelectorAll('#rating span');
+        for (var i = 0; i < this.stars.length; i++) {
+            this.stars[i].setAttribute('data-count', i);
+            this.stars[i].addEventListener('mouseenter', this.enterStarListener.bind(this));
+        }
+        document.querySelector('#rating').addEventListener('mouseleave', this.leaveStarListener.bind(this));
+        };
+        
+        /**
+        * This method is fired when a user hovers over a single star
+        * @param e
+        */
+        StarRating.prototype.enterStarListener = function(e) {
+        this.fillStarsUpToElement(e.target);
+        };
+        
+        /**
+        * This method is fired when the user leaves the #rating element, effectively removing all hover states.
+        */
+        StarRating.prototype.leaveStarListener = function() {
+        this.fillStarsUpToElement(null);
+        };
+        
+        /**
+        * Fill the star ratings up to a specific position.
+        * @param el
+        */
+        StarRating.prototype.fillStarsUpToElement = function(el) {
+        // Remove all hover states:
+        for (var i = 0; i < this.stars.length; i++) {
+            if (el == null || this.stars[i].getAttribute('data-count') > el.getAttribute('data-count')) {
+            this.stars[i].classList.remove('hover');
+            } else {
+            this.stars[i].classList.add('hover');
+            }
+        }
+        };
+        
+        // Run:
+        new StarRating();
+    </script>
+</body>
+</html>
